@@ -1,8 +1,16 @@
+import { LoginForm } from "@/components/auth/LoginForm";
+
 export default function LoginPage(){
     return(
-        <div className="flex min-h-screen flex-col items-center justify-center p-24">
-            <h1 className="text-4xl font-bold">Login Page</h1>
-            <p  className="mt-4 text-lg">Registration successful! Please log in.</p>
+        <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50">
+            <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+                <div className="text-center">
+                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                        Sign In to Your Account
+                    </h1>
+                </div>
+                <LoginForm/>
+            </div>
         </div>
     )
 }

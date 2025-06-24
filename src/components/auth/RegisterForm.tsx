@@ -25,6 +25,7 @@ export function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ErrorState | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showPassword,setShowPassword] = useState(false);
 
   const getFieldError = (fieldName: string) => {
     return error?.errors?.find((e) => e.path.includes(fieldName))?.message;
@@ -150,7 +151,7 @@ export function RegisterForm() {
             Password
           </label>
           <Input
-            type="password"
+            type={showPassword? 'text':'password'}
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -158,6 +159,9 @@ export function RegisterForm() {
             required
             minLength={8}
             className="mt-1"
+            showVisibilityToggle={true}
+            isPasswordVisible={showPassword}
+            onVisibilityChange={setShowPassword}
           />
           {getFieldError("password") && (
             <p className="mt-1 text-xs text-red-600">
